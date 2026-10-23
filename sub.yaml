@@ -1,0 +1,29 @@
+# Clash Meta 订阅配置
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+
+proxies:
+  - name: "蔭雲台灣SS"
+    type: ss
+    server: 187.79.192.113
+    port: 8388
+    cipher: aes-256-gcm
+    password: "Ruandejing5201314"
+
+proxy-groups:
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "蔭雲台灣SS"
+      - "DIRECT"
+  - name: "🚀 节点选择"
+    type: select
+    proxies:
+      - "PROXY"
+      - "DIRECT"
+
+rules:
+  - GEOIP,CN,DIRECT
+  - MATCH,🚀 节点选择
